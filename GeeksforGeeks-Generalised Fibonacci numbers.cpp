@@ -1,3 +1,7 @@
+
+/// Time-0.01s
+
+
 #include<bits/stdc++.h>
 
 using namespace std;
@@ -49,23 +53,30 @@ matrix power(matrix a, int b)
     return (ans);/// return result
 }
 
+/*
+
+| a  b  1 |   |(f(n-1))|   | f(n)   |
+| 1  0  0 | x |(f(n-2))| = | f(n-1) |
+| 0  0  1 |   |  c     |   |    c   |
+*/
+
 /// Driver code
 int main()
 {
     ll n,A,b,c,tc;
     matrix a;
-       /// Initialize     with   | a b c|
-      ///                        | 1 0 0|
-      ///                        | 0 0 1|
+       /// Initialize     with   | a b 1|                   |f(n-1)|                  | f(n)   |         
+      ///                        | 1 0 0| as multiply it by |f(n-2)|                  | f(n-1) |
+      ///                        | 0 0 1|                   | c    | will be equal to | c      | 
       cin>>tc;
    while(tc--)
    {
        cin>>A>>b>>c>>n>>mod;
         a.row = a.column = 3;
-       a.m[0][0] = A ;a.m[0][1] =b; a.m[1][0] = 1;a.m[0][2] =c; a.m[2][2] =1 ;
+       a.m[0][0] = A ;a.m[0][1] =b; a.m[1][0] = 1;a.m[0][2] =1; a.m[2][2] =1 ;
         a.m[1][1] = a.m[1][2] = a.m[2][0] = a.m[2][1] =0 ;
        matrix mat=power(a,n-3); /// it returns a^(n-2)
-       ll res=(mat.m[0][0]%mod)+(mat.m[0][1]%mod)+(mat.m[0][2]%mod);
+       ll res=(mat.m[0][0]%mod)+(mat.m[0][1]%mod)+(c*(mat.m[0][2]%mod))%mod;
        res=res%mod;
        cout<<res<<endl;
    }
