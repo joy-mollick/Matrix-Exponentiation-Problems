@@ -1,5 +1,11 @@
 
-/// Time-0.08s
+/*
+Nice one . You have to solve with matrix exponentiation . When you try to work on paper to write down sequence .
+You will get sequence like ans(n) = ans(n-1)+ans(n-3) ...........Now build your own matrix sketch
+
+*/
+
+/// Time-0.01s
 
 #include<bits/stdc++.h>
 
