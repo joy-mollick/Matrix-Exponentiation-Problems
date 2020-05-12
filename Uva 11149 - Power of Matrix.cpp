@@ -5,9 +5,7 @@
 /*
 Think about our series F(n)=A + A^2 +A^3 +A^4 +A^5 + ......+ A^n.,where A is a given matrix.
 So , F(n+1) = F(n) + A^(n+1) .Our relation becomes F(n) = F(n-1) + A^(n) .
-So by expanding A^(n) we can build our matrix sketch like  M X B = A . 
-But Notice that A is not a number so that we can't put A (as a number) in B matrix .
-We will not be able to put the matrix A into another matrix (B) like matrix M X B = A .
+So by expanding A^(n) we can build our matrix sketch like  M X B = A . No , we can't .As the power of every A is different.
 So we have to find another way of relation so that we can do it efficiently .
 
 Now think about a number series like    Solve(n)=x + x^2 +x^3......+ x^n , where x is a number 
